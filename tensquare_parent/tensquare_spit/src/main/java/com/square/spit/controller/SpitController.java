@@ -30,6 +30,7 @@ public class SpitController {
      */
     @RequestMapping(method= RequestMethod.GET)
     public Result findAll(){
+        LOGGER.info("查询全部");
         return new Result(true, StatusCode.OK,"查询成功",spitService.findAll());
     }
 
