@@ -14,10 +14,11 @@
         <module>tensquare_article</module>
         <module>tensquare_gathering</module>
         <module>tensquare_spit</module>
+        <module>tensquare_recruit</module>
     </modules>
 
     <name>tensquare_parent</name>
-    <description>十次方项目-黑马程序员</description>
+    <description>十次方项目-ZPF</description>
 
     <parent>
         <groupId>org.springframework.boot</groupId>

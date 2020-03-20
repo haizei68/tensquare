@@ -1,7 +1,7 @@
-package com.square.spit.controller;
+package com.tensquare.spit.controller;
 
-import com.square.spit.pojo.Spit;
-import com.square.spit.service.SpitService;
+import com.tensquare.spit.pojo.Spit;
+import com.tensquare.spit.service.SpitService;
 import entity.PageResult;
 import entity.Result;
 import entity.StatusCode;
@@ -10,16 +10,18 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
+import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.web.bind.annotation.*;
-
-import java.text.SimpleDateFormat;
-import java.util.Date;
 
 @RestController
 @CrossOrigin
 @RequestMapping("/spit")
 public class SpitController {
+
     private  static final Logger LOGGER = LoggerFactory.getLogger(SpitController.class);
+
+    @Autowired
+    private RedisTemplate redisTemplate;
 
     @Autowired
     private SpitService spitService;
@@ -61,8 +63,7 @@ public class SpitController {
      */
     @RequestMapping(method=RequestMethod.POST)
     public Result add(@RequestBody Spit spit  ){
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd");
-        spit.setPublishtime( new java.sql.Date(new Date().getTime()));
+
         spitService.add(spit);
         return new Result(true,StatusCode.OK,"增加成功");
     }
@@ -108,7 +109,14 @@ public class SpitController {
      */
     @RequestMapping(value="/thumbup/{id}",method=RequestMethod.PUT)
     public Result updateThumbup(@PathVariable String id){
+        //判断用户是否点赞
+        String  userid = "012899";
+        if (redisTemplate.opsForValue().get("thumbup_"+userid+"_"+id) !=null){
+            return new Result(false,StatusCode.REPERROR,"你已经点过赞了");
+        }
+        //否则添加到redis中区
         spitService.updateThumbup(id);
+        redisTemplate.opsForValue().set("thumbup_"+userid+"_"+id,"1");
         return new Result(true,StatusCode.OK,"点赞成功");
     }
 }

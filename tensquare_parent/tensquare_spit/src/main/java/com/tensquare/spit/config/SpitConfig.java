@@ -1,4 +1,4 @@
-package com.square.spit.config;
+package com.tensquare.spit.config;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;

@@ -1,4 +1,4 @@
-package com.square.spit.pojo;
+package com.tensquare.spit.pojo;
 
 import org.springframework.data.annotation.Id;
 
@@ -9,12 +9,12 @@ public class Spit implements Serializable {
     private static final long serialVersionUID = -2939701292246532333L;
     @Id
     private String _id;
-    private String content;
-    private Date publishtime;
+    private String content;    //标题
+    private Date publishtime; //发布日期
     private String userid;
     private String nickname;
-    private Integer visits;
-    private Integer thumbup;
+    private Integer visits;  //浏览量
+    private Integer thumbup; //点赞数
     private Integer share;
     private Integer comment;
     private String state;
