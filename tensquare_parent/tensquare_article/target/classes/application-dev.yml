@@ -1,0 +1,23 @@
+server:
+  port: 9004
+
+logging:
+  config: classpath:config/logback/logback-dev.xml
+
+
+spring:
+  application:
+    name: tensquare-article #指定服务名
+  datasource:
+    driverClassName: com.mysql.jdbc.Driver
+    url: jdbc:mysql://192.168.39.128:3306/tensquare_article?characterEncoding=UTF8
+    username: root
+    password: 123456
+  jpa:
+    database: MySQL
+    show-sql: true
+  redis:
+    host: 192.168.39.128
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
