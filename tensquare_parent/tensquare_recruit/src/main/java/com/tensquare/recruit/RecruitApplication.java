@@ -16,7 +16,7 @@ public class RecruitApplication {
 
     public static void main(String[] args) {
         SpringApplication.run(RecruitApplication.class);
-        LOGGER.info("============SpitApplication启动完成===============");
+        LOGGER.info("============RecruitApplication启动完成===============");
     }
 
     @Bean

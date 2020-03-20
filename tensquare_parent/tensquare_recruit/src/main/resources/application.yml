@@ -1,5 +1,5 @@
 server:
-  port: 9006
+  port: 9906
 spring:
   application:
     name: tensquare-recruit #指定服务名

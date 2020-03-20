@@ -11,7 +11,10 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.redis.core.RedisTemplate;
+import org.springframework.data.redis.core.TimeoutUtils;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.concurrent.TimeUnit;
 
 @RestController
 @CrossOrigin
@@ -117,6 +120,7 @@ public class SpitController {
         //否则添加到redis中区
         spitService.updateThumbup(id);
         redisTemplate.opsForValue().set("thumbup_"+userid+"_"+id,"1");
+        redisTemplate.expire("thumbup_"+userid+"_"+id,10, TimeUnit.SECONDS);
         return new Result(true,StatusCode.OK,"点赞成功");
     }
 }
