@@ -1,11 +1,11 @@
 package com.tensquare.base.common;
 
+import entity.Result;
+import entity.StatusCode;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
-import entity.Result;
-import entity.StatusCode;
 
 /**
  * 公共异常处理类 处理controller异常

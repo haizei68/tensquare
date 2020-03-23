@@ -14,6 +14,7 @@ public class SpitApplication {
     public static void main(String[] args) {
         SpringApplication.run(SpitApplication.class);
         LOGGER.info("============SpitApplication启动完成===============");
+
     }
 
     @Bean
