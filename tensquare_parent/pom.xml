@@ -15,6 +15,7 @@
         <module>tensquare_gathering</module>
         <module>tensquare_spit</module>
         <module>tensquare_recruit</module>
+        <module>tensquare_asset</module>
     </modules>
 
     <name>tensquare_parent</name>
