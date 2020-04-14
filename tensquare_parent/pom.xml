@@ -9,13 +9,15 @@
     <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
     <modules>
-        <module>tensquare_common</module>
         <module>tensquare_base</module>
         <module>tensquare_article</module>
         <module>tensquare_gathering</module>
         <module>tensquare_spit</module>
         <module>tensquare_recruit</module>
         <module>tensquare_asset</module>
+        <module>tensquare_common</module>
+        <module>tensquare_user</module>
+        <module>tensquare_sms</module>
     </modules>
 
     <name>tensquare_parent</name>
@@ -95,4 +97,20 @@
         </pluginRepository>
     </pluginRepositories>
 
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <version>2.0.1.RELEASE</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>repackage</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
 </project>
