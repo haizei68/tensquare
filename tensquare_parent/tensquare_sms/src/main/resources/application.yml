@@ -1,0 +1,17 @@
+server:
+  port: 9009
+
+logging:
+  config: classpath:config.logback/logback-dev.xml
+
+spring:
+  application:
+    name: tensquare-sms #指定服务名
+  rabbitmq:
+    host: 192.168.39.128
+aliyun:
+  sms:
+    accessKeyId: LTAI4FoRtPiSXkWqymRHvkQX
+    accessKeySecret: tZp8pkhc8z4x6WNGvwkB67KVTgL9pJ
+    template_code: SMS_145597722
+    sign_name: 品优购

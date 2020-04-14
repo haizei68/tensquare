@@ -22,3 +22,7 @@ mybatis:
     #typeAliasesPackage: com.tensquare.asset.pojo
     mapperLocations: classpath:mapper/*.xml
     #configLocation: classpath:/mybatis-config.xml
+es:
+  url: 192.168.39.128:9200
+  userName:
+  password:

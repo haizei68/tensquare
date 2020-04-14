@@ -1,6 +1,6 @@
 package com.tensquare.base.service;
 
-import com.tensquare.base.controller.LabelController;
+
 import com.tensquare.base.dao.LabelDao;
 import com.tensquare.base.pojo.Label;
 import org.slf4j.Logger;
@@ -130,4 +130,11 @@ public class LabelService {
         return labelDao.findAll(this.getSpecification(searchMap), pageable);
     }
 
+//    @DcmsLogTrace
+//    public ApiResponse<Result> findAll2(ApiRequest<Void> req) {
+//        ApiResponse<Result> resp = new ApiResponse<>();
+//        resp.setResultCode(ApiResponse.SUCCESS);
+//        resp.setResultMsg("ok");
+//        return resp;
+//    }
 }

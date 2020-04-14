@@ -1,35 +1,28 @@
 package com.tensquare.article.service;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
-import java.util.Map;
-import java.util.concurrent.TimeUnit;
-
-import javax.annotation.Resource;
-import javax.persistence.criteria.CriteriaBuilder;
-import javax.persistence.criteria.CriteriaQuery;
-import javax.persistence.criteria.Expression;
-import javax.persistence.criteria.Predicate;
-import javax.persistence.criteria.Root;
-import javax.persistence.criteria.Selection;
-
+import com.tensquare.article.dao.ArticleDao;
+import com.tensquare.article.pojo.Article;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
-import org.springframework.data.domain.Sort;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Service;
-
 import org.springframework.transaction.TransactionStatus;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.transaction.support.TransactionCallback;
 import org.springframework.transaction.support.TransactionTemplate;
 import util.IdWorker;
 
-import com.tensquare.article.dao.ArticleDao;
-import com.tensquare.article.pojo.Article;
+import javax.annotation.Resource;
+import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Predicate;
+import javax.persistence.criteria.Root;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+import java.util.concurrent.TimeUnit;
 
 /**
  * 服务层
@@ -47,6 +40,11 @@ public class ArticleService {
 
     @Resource
     private TransactionTemplate transactionTemplate;
+
+    //spring data redis提供的模板对象 通过这个模块就可以对redis操作缓存
+    @Autowired
+    private RedisTemplate redisTemplate;
+
 
     /**
      * 查询全部列表
@@ -84,9 +82,6 @@ public class ArticleService {
         return articleDao.findAll(specification);
     }
 
-    //spring data redis提供的模板对象 通过这个模块就可以对redis操作缓存
-    @Autowired
-    private RedisTemplate redisTemplate;
 
     /**
      * 根据ID查询实体

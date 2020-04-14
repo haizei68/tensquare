@@ -2,14 +2,14 @@ package com.tensquare.base.controller;
 
 import com.tensquare.base.pojo.Label;
 import com.tensquare.base.service.LabelService;
+import entity.PageResult;
+import entity.Result;
+import entity.StatusCode;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.web.bind.annotation.*;
-import entity.PageResult;
-import entity.Result;
-import entity.StatusCode;
 
 import java.util.List;
 import java.util.Map;
@@ -39,12 +39,19 @@ public class LabelController {
      * 查询所有
      * @return
      */
-    @RequestMapping(value = "/findAll",method = RequestMethod.GET)
-    public Result findAll(){
-        int r = 1/0;
+    @RequestMapping(value = "/findAll2",method = RequestMethod.GET)
+    public Result findAll2(){
         List<Label> labelList = labelService.findAll();
         return new Result(true, StatusCode.OK,"查询成功",labelList);
     }
+    /**
+     * 查询所有
+     * @return
+     */
+//    @RequestMapping(value = "/findAll",method = RequestMethod.POST)
+//    public ApiResponse<Result> findAll(@RequestBody ApiRequest<Void> req){
+//        return labelService.findAll2(req);
+//    }
 
     /**
      * 根据id查询详情页

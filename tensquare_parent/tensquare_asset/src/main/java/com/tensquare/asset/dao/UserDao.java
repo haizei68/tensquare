@@ -4,7 +4,7 @@ import com.tensquare.asset.pojo.DampUserPojo;
 
 import java.util.List;
 
-public interface DampUserDao  {
+public interface UserDao {
 
    /**
     * 查询所有
@@ -18,4 +18,6 @@ public interface DampUserDao  {
     * @return
     */
    DampUserPojo findById(String userId);
+
+    DampUserPojo getUserInfoById(String userId);
 }

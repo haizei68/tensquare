@@ -1,4 +1,7 @@
-package entity;
+package com.tensquare.asset.entity;
+
+
+import com.tensquare.asset.validation.Sensitive;
 
 import java.io.Serializable;
 import java.util.UUID;
@@ -12,6 +15,7 @@ public class ApiRequest<T> implements Serializable {
     private String sign;
     private String encryptType;
     private String userId;
+    @Sensitive
     private String password;
     private String token;
     private String ip;

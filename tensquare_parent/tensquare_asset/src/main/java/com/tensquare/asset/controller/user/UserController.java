@@ -1,8 +1,7 @@
-package com.tensquare.asset.controller;
+package com.tensquare.asset.controller.user;
 
-import com.tensquare.asset.service.IUser;
-import entity.ApiRequest;
-import entity.ApiResponse;
+import com.tensquare.asset.service.user.IUser;
+import com.tensquare.asset.entity.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

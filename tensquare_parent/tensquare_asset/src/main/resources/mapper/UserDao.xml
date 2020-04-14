@@ -1,19 +1,20 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 
-<mapper namespace= "com.tensquare.asset.dao.DampUserDao" >
+<mapper namespace= "com.tensquare.asset.dao.UserDao" >
     <resultMap id ="BaseMap" type="com.tensquare.asset.pojo.DampUserPojo">
         <id column="ID" property="id"/>
         <result column="NAME" property="name"/>
         <result column="CREATE_TIME" property="createTime"/>
         <result column="UPDATE_TIME" property="updateTime"/>
+        <result column="CREATE_BY" property="createBy"/>
         <result column="UPDATE_BY" property="updateBy"/>
         <result column="STATUS" property="status"/>
         <result column="PASSWORD" property="password"/>
     </resultMap>
 
     <sql id="allColumns">
-        ID,NAME,CREATE_TIME,UPDATE_TIME,UPDATE_BY,STATUS,PASSWORD
+        ID,NAME,CREATE_TIME,UPDATE_TIME,CREATE_BY,UPDATE_BY,STATUS,PASSWORD
     </sql>
 
     <select id="findAll" resultMap="BaseMap">
@@ -24,5 +25,12 @@
     <select id="findById" resultMap="BaseMap">
         select <include refid="allColumns"/>
             from DAMP_USER where ID =#{userId}
+    </select>
+
+    <!-- 根据主键查询数据 -->
+    <select id="getUserInfoById" resultMap="BaseMap">
+        SELECT
+        <include refid="allColumns"/>
+        FROM DAMP_USER WHERE ID = #{userId}
     </select>
 </mapper>

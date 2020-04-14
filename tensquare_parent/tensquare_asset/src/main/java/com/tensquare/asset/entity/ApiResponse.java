@@ -1,4 +1,4 @@
-package entity;
+package com.tensquare.asset.entity;
 
 import java.io.Serializable;
 
@@ -12,7 +12,7 @@ public class ApiResponse<T> implements Serializable {
     public static final String VALIDATE_FAIL="1";
     public static final String FAIL = "2";
     public static final String UNKNOWN = "9999";
-    public static final String TOKEN_EXPIRER = "9998";
+    public static final String TOKEN_EXPIRED = "9998";
     public static final String AUTH_FAIL = "9997";
 
     public ApiResponse() {

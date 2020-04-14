@@ -16,6 +16,8 @@ public class DampUserPojo {
 
      private  Date updateTime;
 
+     private  String createBy;
+
      private  String updateBy;
 
      private  String status;
