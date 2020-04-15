@@ -1,0 +1,6 @@
+server: 
+  port: 6868 #服务端口号
+eureka:
+  client:
+    registerWithEureka: false
+    fetchRegistry: false

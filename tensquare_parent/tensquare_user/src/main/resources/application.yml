@@ -6,7 +6,7 @@ logging:
 
 spring:
   application:
-    name: tensquare-article #指定服务名
+    name: tensquare-user #指定服务名
   datasource:
     driverClassName: com.mysql.jdbc.Driver
     url: jdbc:mysql://192.168.39.128:3306/tensquare_user?characterEncoding=UTF8
@@ -22,3 +22,13 @@ spring:
   jackson:
     date-format: yyyy-MM-dd HH:mm:ss
     time-zone: GMT+8
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:6868/eureka
+  instance:
+    prefer-ip-address: true
+feign:
+  hystrix:
+  enabled: false             #解决超时问题（方案三：关闭Feign的hystrix）

@@ -1,5 +1,6 @@
 package com.tensquare.user.controller;
 
+import com.tensquare.user.client.ArticleClient;
 import com.tensquare.user.pojo.User;
 import com.tensquare.user.service.UserService;
 import entity.Result;
@@ -14,6 +15,9 @@ public class UserController {
 
     @Autowired
     private UserService userService;
+
+    @Autowired
+    private ArticleClient articleClient;
 
     /**
      * 发送短信验证码
@@ -35,4 +39,15 @@ public class UserController {
         userService.add(user,code);
         return new Result(true,StatusCode.OK,"注册成功");
     }
+
+    /**
+     * 根据ID查询
+     * @param artId
+     * @return
+     */
+    @RequestMapping(value="/{artId}",method= RequestMethod.GET)
+    public Result findById(@PathVariable String artId){
+        Result result = articleClient.findById(artId);
+        return result;
+    };
 }
