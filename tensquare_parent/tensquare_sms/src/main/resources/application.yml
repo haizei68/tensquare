@@ -12,6 +12,6 @@ spring:
 aliyun:
   sms:
     accessKeyId: LTAI4FoRtPiSXkWqymRHvkQX
-    accessKeySecret: tZp8pkhc8z4x6WNGvwkB67KVTgL9pJ
+    accessKeySecret: xxxx
     template_code: SMS_145597722
     sign_name: 品优购
